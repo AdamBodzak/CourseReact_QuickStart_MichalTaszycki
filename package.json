@@ -1,0 +1,19 @@
+{
+  "name": "react_quick_course",
+  "version": "1.0.0",
+  "description": "React quick course. Clone application Spotify.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdamBodzak/CourseReact_QuickStart_MichalTaszycki.git"
+  },
+  "author": "Adam Bodzak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AdamBodzak/CourseReact_QuickStart_MichalTaszycki/issues"
+  },
+  "homepage": "https://github.com/AdamBodzak/CourseReact_QuickStart_MichalTaszycki#readme"
+}
