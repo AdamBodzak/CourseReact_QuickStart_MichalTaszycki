@@ -2,22 +2,41 @@
 import './App.css';
 
 function Heading() {
-  return (<h1>Music Player</h1>);
+  return (<h1>ddd</h1>);
 };
 
 function SongPlayer() {
+  const showControls = false || true;
+  const audioURL = "https://examples.devmastery.pl/assets/audio/deadfro5h.mp3";
   return (
-    <audio controls="true" >
-      <source src="https://examples.devmastery.pl/assets/audio/deadfro5h.mp3"></source>
-    </audio>
+    <>
+      <Heading />
+      <audio controls={showControls}>
+        <source src={audioURL}></source>
+      </audio>
+    </>
   );
 };
 
+function getStatusMessage(isLoading, hasError) {
+  let massage = null;
+  if (isLoading) {
+    massage = "Loading...";
+  };
+  if (hasError) {
+    massage = "Error occurred...";
+  };
+  return massage;
+};
+
 function App() {
+  const isLoading = false;
+  const hasError = false;
+  const showPlayer = !isLoading && !hasError;
+  const statusMassage = getStatusMessage(isLoading, hasError);
   return (
     <div className="App">
-      <Heading />
-      <SongPlayer />
+      {showPlayer ? <SongPlayer /> : statusMassage}
     </div>
   );
 }
