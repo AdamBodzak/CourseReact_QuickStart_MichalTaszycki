@@ -1,26 +1,32 @@
 
+import { useRef, useState } from 'react';
 import './App.css';
 
 function Heading({ title }) {
   return (<h1>{title}</h1>);
 };
 
-function SongPlayer({ showControls = true, songsProps }) {
+function SongPlayer({ showControls = false, songsProps }) {
+  const audioRef = useRef();
   const { audioURL, coverURL } = songsProps;
   return (
     <>
       <Heading title="Music Player" />
       <img width="250px" height="250px" src={coverURL} alt="Song cover" />
-      <audio key={audioURL} controls={showControls}>
+      <audio ref={audioRef} key={audioURL} controls={showControls}>
         <source src={audioURL}></source>
       </audio>
+      <div>
+        <button onClick={() => audioRef.current.play()}>Play</button>
+        <button onClick={() => audioRef.current.pause()}>Pause</button>
+      </div>
     </>
   );
 };
 
 function SongListItem({ song, isCurrent, onSelect }) {
-  const backgroundColor = isCurrent ? "red" : "none";
-  const style = { backgroundColor };
+  const background = isCurrent ? "red" : "none";
+  const style = { background };
   function handleClick() {
     onSelect(song);
   };
@@ -52,13 +58,13 @@ function App() {
       artist: "Wowa"
     }
   ];
-  const currentSong = songs[1];
+  const [currentSong, setCurrentSong] = useState(songs[1]);
   function handleSelectSong(selectedSong) {
-    console.log(selectedSong);
+    setCurrentSong(selectedSong);
   };
   return (
     <div className="App">
-      <SongPlayer showControls songsProps={currentSong} />
+      <SongPlayer songsProps={currentSong} />
       <section>
         <Heading title="Songs" />
         <ul>
