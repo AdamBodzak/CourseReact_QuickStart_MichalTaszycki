@@ -1,16 +1,17 @@
 
 import './App.css';
 
-function Heading() {
-  return (<h1>ddd</h1>);
+function Heading(props) {
+  const title = props.title;
+  return (<h1>{title}</h1>);
 };
 
-function SongPlayer() {
-  const showControls = false || true;
-  const audioURL = "https://examples.devmastery.pl/assets/audio/deadfro5h.mp3";
+function SongPlayer(props) {
+  const showControls = props.showControls;
+  const audioURL = props.audioURL;
   return (
     <>
-      <Heading />
+      <Heading title="Music Player"/>
       <audio controls={showControls}>
         <source src={audioURL}></source>
       </audio>
@@ -18,25 +19,10 @@ function SongPlayer() {
   );
 };
 
-function getStatusMessage(isLoading, hasError) {
-  let massage = null;
-  if (isLoading) {
-    massage = "Loading...";
-  };
-  if (hasError) {
-    massage = "Error occurred...";
-  };
-  return massage;
-};
-
 function App() {
-  const isLoading = false;
-  const hasError = false;
-  const showPlayer = !isLoading && !hasError;
-  const statusMassage = getStatusMessage(isLoading, hasError);
   return (
     <div className="App">
-      {showPlayer ? <SongPlayer /> : statusMassage}
+      <SongPlayer showControls audioURL="https://examples.devmastery.pl/assets/audio/deadfro5h.mp3"/>
     </div>
   );
 }
