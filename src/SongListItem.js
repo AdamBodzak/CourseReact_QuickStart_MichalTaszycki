@@ -1,3 +1,4 @@
+import "./SongListItem.css";
 
 export function SongListItem({ song, isCurrent, onSelect }) {
   const background = isCurrent ? "darkslategrey" : "none";

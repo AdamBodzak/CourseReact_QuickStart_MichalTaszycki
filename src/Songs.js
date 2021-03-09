@@ -1,5 +1,6 @@
 import { Heading } from "./Heading";
 import { SongListItem } from "./SongListItem";
+import "./Songs.css";
 
 export function Songs({ songs, currentSong, handleSelectSong }) {
   return (
