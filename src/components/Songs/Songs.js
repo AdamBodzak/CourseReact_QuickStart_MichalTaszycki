@@ -1,5 +1,5 @@
-import { Heading } from "./Heading";
-import { SongListItem } from "./SongListItem";
+import { Heading } from "../Heading/Heading";
+import { SongListItem } from "./SongListItem/SongListItem";
 import "./Songs.css";
 
 export function Songs({ songs, currentSong, handleSelectSong }) {

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Heading } from "./Heading";
+import { Heading } from "../Heading/Heading";
 import "./SongPlayer.css";
 
 export function SongPlayer({ showControls = false, song }) {

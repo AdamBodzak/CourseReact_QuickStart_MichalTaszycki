@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { SongPlayer } from "./SongPlayer";
-import { Songs } from "./Songs";
+import { SongPlayer } from "./SongPlayer/SongPlayer";
+import { Songs } from "./Songs/Songs";
 
 export function App() {
   const URL = "https://examples.devmastery.pl/songs-api/songs";
